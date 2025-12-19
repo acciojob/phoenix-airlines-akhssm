@@ -15,7 +15,6 @@ const Confirmation = () => {
   return (
     <div className="container">
       <h3>Booking Confirmed ✅</h3>
-
       <p><b>Name:</b> {user && user.name}</p>
       <p><b>From:</b> {flight && flight.from}</p>
       <p><b>To:</b> {flight && flight.to}</p>

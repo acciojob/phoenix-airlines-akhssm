@@ -20,11 +20,12 @@ const FlightSearch = () => {
       return;
     }
 
-    // Mock flight data for demonstration
+    // Mock flights for testing
     const mockFlights = [
       { id: 1, from, to, date },
       { id: 2, from, to, date },
     ];
+
     setFlights(mockFlights);
   };
 
