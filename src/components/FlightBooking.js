@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 const FlightBooking = () => {
@@ -9,6 +9,12 @@ const FlightBooking = () => {
 
   const dispatch = useDispatch();
   const history = useHistory();
+  const flight = useSelector((state) => state.flight);
+
+  if (!flight) {
+    history.push("/flight-search"); // redirect if no flight selected
+    return null;
+  }
 
   const confirmBooking = () => {
     if (!name || !email || !phone) {
@@ -27,6 +33,9 @@ const FlightBooking = () => {
   return (
     <div className="container">
       <h3>Enter Passenger Details</h3>
+      <p>
+        <b>Flight:</b> {flight.from} ➡ {flight.to} on {flight.date}
+      </p>
 
       <input
         type="text"
